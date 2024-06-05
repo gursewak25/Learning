@@ -1,0 +1,40 @@
+Javascript Notes-:
+------------------
+
+1.Everything in javascript happens inside the "Execution context".
+
+2.Execution context has 2 parts:-
+    a. Variable Environment:
+         This is the place where memory is allocated to all the variables and functions.
+    b. Thread of Execution:
+         This is he place where the code is executed line by line.
+
+3.Javascript is a synchronous single-threaded language.
+4.Example of Execution-:
+    var n = 2;                                
+    function square(num)
+    {
+    var ans = num*num;
+    return ans;
+    }
+    var square2 = square(n);
+    var square4 = square(4);
+
+  a. Here, first a global execution context will be created and the memory side of it will contain value of n = undefined, function square = (var ans = num*num; return ans;, square2) = undefined, square4 = undefined. 
+  b. Code side will read the code line by line and now value n = 2 will be assigned to n. Then we will proceed to var square2 = square(n). Here function is called so, a new local execution context will be created for that function and the function will be perfomed in that execution table.
+
+  5. These execution functions are pushed in a stack called Call Stack. Call Stack is first populated with the global execution context, then the execution context for the next function is pushed into thhe stack and when the function is completed, the execution context is popped put pf the stack. Call stack is also called execution context stack, programminng stack, control stack, runtime stack and machine stack.
+
+  6. Hoisting in JavaScript is a process in which all the Variables, Functions and Class defination are declared BEFORE execution of the code
+
+  7. a.  2 Golden Rules:
+            1. Variable declarations are scanned and are made undefined
+            2. Function declarations are scanned and are made available
+     b. UNDEFINED means Variable has been declared but value is not ASSIGNED but NOT DEFINED means Variables is NOT DECLARED.
+   
+  8. Javascript engine will run even if there is no line of code written in the js file. 
+   
+  9. Anything which is written outside the functions is considered to be in the global space. 
+       if a is defined in the global space and
+             we write console.log(a)  
+              it also means console.log(window.a) or console.log(this.a)  ie the engine will find a from the global wwindow memory.
